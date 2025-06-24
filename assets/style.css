@@ -1,0 +1,186 @@
+@font-face {
+  font-family: outfit;
+  src: url(fonts/Outfit-VariableFont_wght.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: outfit;
+}
+
+.text-primary {
+  color: #1d2128 !important;
+}
+
+.text-secondary {
+  color: #666666 !important;
+}
+
+.bg-primary {
+  background-color: #007456 !important;
+}
+
+.hero-sec {
+  background-image: url(images/hero_bg_2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-sec h1 {
+  color: #1aaa84 !important;
+  font-size: 4.5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hero-sec h2 {
+  font-size: 4rem;
+}
+
+.buttons a {
+  transition: all 0.3s;
+  box-shadow: 4px 4px 10px #1d21281c;
+}
+
+.btn-green:hover {
+  background-color: white !important;
+  color: #1d2128 !important;
+}
+
+.btn-white:hover {
+  background-color: #007456 !important;
+  color: white !important;
+}
+
+.fa-arrow-right {
+  rotate: -42deg;
+}
+
+.social-link-icon {
+  background-color: white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  box-shadow: 5px 3px 15px 0px rgba(0, 0, 0, 0.06) inset,
+    2px 4px 6px 0px rgba(0, 0, 0, 0.05), 5px 10px 16px 0px rgba(0, 0, 0, 0.06);
+}
+
+.social-link-icon:hover > svg path {
+  transition: all 0.3s;
+  fill: #2dcaa0 !important;
+}
+
+.footer-link:hover {
+  color: #2dcaa0 !important;
+}
+
+.table-area {
+  border-radius: 10px;
+  border: 1px solid #ececec;
+}
+
+table.table {
+  table-layout: fixed;
+  width: 100%;
+  margin: 0 auto;
+  border-color: #f5f5f5 !important;
+  border-collapse: collapse;
+}
+
+table.table th,
+table.table td {
+  width: calc(100% / 7); /* 7 columns */
+  word-wrap: break-word;
+  text-align: center;
+  padding: 15px 0;
+}
+
+table.table th {
+  padding: 8px 0;
+}
+
+table.table td {
+  color: #666666;
+}
+
+table.table th {
+  background-color: #f8fafc;
+}
+
+table.table .table-download-btn {
+  background-color: #007456;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+table.table tbody tr:nth-child(even) td {
+  background-color: #f8fafc;
+}
+
+table.table .table-download-btn {
+  background-color: #007456;
+}
+
+#resumeTableBody {
+  position: relative;
+}
+
+#resumeTableBody tr td {
+  position: relative;
+  z-index: 0;
+}
+
+#blurWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.blur-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.blurred-cell {
+  position: relative;
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
