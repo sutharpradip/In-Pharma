@@ -29,6 +29,10 @@ body {
   background-color: #007456 !important;
 }
 
+.stroke {
+  border: 1px solid #e5e5e5 !important;
+}
+
 .hero-sec {
   background-image: url(images/hero_bg_2.png);
   background-repeat: no-repeat;
@@ -134,4 +138,37 @@ table.table tbody tr:nth-child(even) td {
 
 table.table .table-download-btn {
   background-color: #007456;
+}
+
+.otp-box {
+  width: 52px;
+  height: 60px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s;
+}
+
+.otp-box.focused {
+  border-color: #008062;
+  box-shadow: 0 0 0 2px rgba(0, 128, 98, 0.2);
+}
+
+.eye-btn {
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+#pass:focus,
+#pass:focus-visible {
+  z-index: 3 !important;
+}
+
+.form-modal {
+  width: 65% !important;
 }

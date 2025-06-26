@@ -74,9 +74,12 @@
               <a
                 href="#"
                 class="btn-white d-inline-flex align-items-center gap-2 text-primary fw-medium bg-white py-3 px-4 rounded-5 text-decoration-none"
-                >Search a resume
-                <span> <i class="fa-solid fa-download"></i></span
-              ></a>
+                data-bs-toggle="modal"
+                data-bs-target="#verificationModal"
+              >
+                Search a resume
+                <span><i class="fa-solid fa-download"></i></span>
+              </a>
             </div>
           </div>
         </div>
@@ -139,8 +142,11 @@
             <a
               href="#"
               class="text-capitalize text-secondary text-decoration-none fw-medium footer-link"
-              >terms & conditions</a
+              data-bs-toggle="modal"
+              data-bs-target="#termsModal"
             >
+              Terms & Conditions
+            </a>
           </div>
 
           <div class="col-12 col-md-4 text-end">
@@ -160,6 +166,350 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+
+    <!-- Verification Modal -->
+    <div
+      class="modal fade"
+      id="verificationModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content border-0 rounded-4 overflow-hidden">
+          <div class="modal-body p-0 d-flex flex-column flex-lg-row">
+            <!-- Left Section -->
+            <div class="bg-white p-5 col-12 col-md-6 position-relative">
+              <!-- Login Form -->
+              <div id="login-section">
+                <h3 class="fw-bold text-primary">Welcome</h3>
+                <p class="text-primary">
+                  Please enter your credentials to sign in!
+                </p>
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  <input
+                    type="email"
+                    class="form-control stroke form-control-lg rounded-3 fs-6 bg-light border-0"
+                    placeholder="Enter you email"
+                    id="login-email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <div class="input-group position-relative">
+                    <input
+                      type="password"
+                      class="form-control stroke form-control-lg rounded-3 fs-6 bg-light border-0"
+                      placeholder="Enter Password"
+                      id="login-password"
+                    />
+                    <span
+                      id="eye"
+                      class="input-group-text z-5 p-0 me-2 cursor-pointer border-0 position-absolute end-0 eye-btn"
+                    >
+                      <i class="fa fa-eye"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <a href="#" class="text-decoration-underline"
+                    >Forgot password</a
+                  >
+                </div>
+                <button
+                  class="btn w-100 py-3 rounded-pill fw-semibold text-white"
+                  style="background-color: #008062"
+                  id="login-submit"
+                >
+                  Login
+                </button>
+              </div>
+
+              <!-- OTP Section -->
+              <div id="otp-section" style="display: none">
+                <h3 class="fw-bold text-primary">Verification</h3>
+                <p class="text-primary mb-4">
+                  We've sent a code to <strong>*****olsen12@gmail.com</strong>,
+                  this code will be valid for 15 minutes only
+                </p>
+
+                <input
+                  type="text"
+                  maxlength="6"
+                  class="form-control border-0 p-0 m-0"
+                  style="position: absolute; opacity: 0; height: 60px"
+                  id="otp-hidden-input"
+                  autocomplete="one-time-code"
+                />
+                <div class="d-flex gap-2 mb-4" id="otp-display">
+                  <div class="otp-box">&nbsp;</div>
+                  <div class="otp-box">&nbsp;</div>
+                  <div class="otp-box">&nbsp;</div>
+                  <div class="otp-box">&nbsp;</div>
+                  <div class="otp-box">&nbsp;</div>
+                  <div class="otp-box">&nbsp;</div>
+                </div>
+
+                <button
+                  class="btn w-100 py-3 rounded-pill fw-semibold text-white"
+                  style="background-color: #008062"
+                >
+                  Verify OTP
+                </button>
+                <button
+                  class="btn mt-3 w-100 py-3 rounded-pill border-2 fw-semibold"
+                  style="
+                    border-color: #008062;
+                    color: #008062;
+                    background: transparent;
+                  "
+                >
+                  Resend Code
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Section (remains unchanged) -->
+            <div class="text-white px-5 py-5 col-12 col-md-6">
+              <h4 class="fw-bold mb-2 text-primary">
+                Dont Have<br />Login Credentials ?
+              </h4>
+              <p class="mb-4 text-secondary">
+                Please
+                <a
+                  href="#"
+                  class="text-decoration-underline fw-semibold"
+                  style="color: #008062"
+                  >Request Access</a
+                >
+                to get started
+              </p>
+              <h6 class="fw-bold mb-3">Policies</h6>
+              <ul class="list-unstyled opacity-75 small text-secondary">
+                <li>• Please Request Access to get started</li>
+                <li>• Please Request Access to get started</li>
+                <li>• Please Request Access to get started</li>
+                <li>• Please Request Access to get started</li>
+                <li>• Please Request Access to get started</li>
+              </ul>
+            </div>
+
+            <!-- Close Button -->
+            <button
+              type="button"
+              class="btn-close position-absolute top-0 end-0 m-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div
+      class="modal fade"
+      id="termsModal"
+      tabindex="-1"
+      aria-labelledby="termsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content rounded-4">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="termsModalLabel">
+              Terms & Conditions
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-secondary" style="font-size: 0.95rem">
+            <p><strong>Effective Date:</strong> 03-07-2025</p>
+            <p><strong>Last Updated:</strong> 03-07-2025</p>
+
+            <h6>1. Introduction</h6>
+            <p>
+              By accessing or using InPharma.Global (the “Platform”), you agree
+              to the following Terms and Conditions. If you do not agree, please
+              do not use this website.
+            </p>
+
+            <h6>2. Purpose of the Platform</h6>
+            <p>
+              InPharma.Global is a professional resume bank dedicated to
+              connecting pharma professionals and students with verified
+              pharmaceutical companies and recruiters. We do not provide open
+              access to resumes. Access is granted only upon formal request and
+              manual verification.
+            </p>
+
+            <h6>3. Privacy & Data Protection</h6>
+            <ul>
+              <li>
+                We collect and store resumes and contact information only for
+                recruitment purposes.
+              </li>
+              <li>
+                All resumes submitted are shared only with verified pharma
+                companies or recruitment partners.
+              </li>
+              <li>
+                No resume data is sold, transferred, or exposed to third parties
+                or unverified individuals.
+              </li>
+              <li>
+                We use secure Google infrastructure and form-based submission.
+                However, by uploading your resume, you acknowledge that no
+                internet platform is 100% secure.
+              </li>
+              <li>
+                You may request deletion of your data at any time by writing to
+                <a href="mailto:support@inpharma.global"
+                  >support@inpharma.global</a
+                >.
+              </li>
+            </ul>
+
+            <h6>4. User Consent</h6>
+            <p>
+              By submitting your resume or accessing our services, you agree
+              that:
+            </p>
+            <ul>
+              <li>Your data may be reviewed and stored by InPharma.Global.</li>
+              <li>
+                Your resume will only be shared with pharma recruiters or hiring
+                partners after verification.
+              </li>
+              <li>
+                You grant us permission to use your information solely for the
+                purpose of helping you connect with job opportunities in the
+                pharmaceutical industry.
+              </li>
+            </ul>
+
+            <h6>5. Recruiter Access Policy</h6>
+            <ul>
+              <li>
+                Only verified pharma companies, hiring agencies, or licensed HR
+                professionals are allowed to request access.
+              </li>
+              <li>Each access request is reviewed manually before approval.</li>
+              <li>
+                Any misuse of resume data will result in legal action and
+                blacklisting from the platform.
+              </li>
+              <li>
+                Companies found violating this policy may have access
+                permanently revoked.
+              </li>
+            </ul>
+
+            <h6>6. Disclaimer</h6>
+            <p>
+              InPharma.Global does not guarantee placement or job offers. We are
+              not responsible for hiring decisions or outcomes, and do not
+              perform recruiter background checks unless legally required.
+            </p>
+
+            <h6>7. Limitation of Liability</h6>
+            <p>
+              In no event shall InPharma.Global, its founder, or team be liable
+              for any damages arising from the use or misuse of this platform.
+              You agree to use this service at your own risk.
+            </p>
+
+            <h6>8. Intellectual Property</h6>
+            <p>
+              All content on this website is the intellectual property of
+              InPharma.Global and cannot be copied or reused without permission.
+            </p>
+
+            <h6>9. Governing Law & Jurisdiction</h6>
+            <p>
+              These Terms are governed by the laws of the Government of India.
+              Legal disputes fall under the jurisdiction of Ahmedabad, Gujarat.
+            </p>
+
+            <h6>10. Contact Information</h6>
+            <p>
+              For support, questions, or complaints, please contact:
+              <a href="mailto:support@inpharma.global"
+                >support@inpharma.global</a
+              >
+            </p>
+
+            <h6>11. Updates to Terms</h6>
+            <p>
+              We reserve the right to update these Terms at any time. Users will
+              be notified of significant changes via website notice or email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const otpInput = document.getElementById("otp-hidden-input");
+      const otpBoxes = document.querySelectorAll("#otp-display .otp-box");
+      const otpDisplay = document.getElementById("otp-display");
+
+      otpDisplay.addEventListener("click", () => {
+        otpInput.focus();
+      });
+
+      otpInput.addEventListener("input", () => {
+        const value = otpInput.value;
+        otpBoxes.forEach((box, i) => {
+          box.textContent = value[i] || "\u00A0";
+          box.classList.toggle("focused", i === value.length);
+        });
+      });
+
+      otpInput.addEventListener("focus", () => {
+        const value = otpInput.value;
+        otpBoxes.forEach((box, i) => {
+          box.classList.toggle("focused", i === value.length);
+        });
+      });
+
+      otpInput.addEventListener("blur", () => {
+        otpBoxes.forEach((box) => box.classList.remove("focused"));
+      });
+
+      document.getElementById("login-submit").addEventListener("click", () => {
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("otp-section").style.display = "block";
+        otpInput.focus();
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const eye = document.getElementById("eye");
+        const pass = document.getElementById("login-password");
+
+        if (eye && pass) {
+          eye.addEventListener("click", () => {
+            const type = pass.getAttribute("type");
+            if (type === "password") {
+              pass.setAttribute("type", "text");
+              eye.querySelector("i").classList.remove("fa-eye");
+              eye.querySelector("i").classList.add("fa-eye-slash");
+            } else {
+              pass.setAttribute("type", "password");
+              eye.querySelector("i").classList.remove("fa-eye-slash");
+              eye.querySelector("i").classList.add("fa-eye");
+            }
+          });
+          console.log("click");
+        }
+      });
     </script>
   </body>
 </html>
