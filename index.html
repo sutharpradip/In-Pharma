@@ -175,7 +175,7 @@
       tabindex="-1"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-dialog form-modal modal-dialog-centered modal-xl">
         <div class="modal-content border-0 rounded-4 overflow-hidden">
           <div class="modal-body p-0 d-flex flex-column flex-lg-row">
             <!-- Left Section -->
@@ -213,7 +213,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <a href="#" class="text-decoration-underline"
+                  <a href="#" class="text-decoration-underline text-primary"
                     >Forgot password</a
                   >
                 </div>
@@ -251,7 +251,10 @@
                   <div class="otp-box">&nbsp;</div>
                 </div>
 
+                <div id="error-msg" class="d-none text-danger"></div>
+
                 <button
+                  id="verify-otp"
                   class="btn w-100 py-3 rounded-pill fw-semibold text-white"
                   style="background-color: #008062"
                 >
@@ -315,7 +318,7 @@
       aria-labelledby="termsModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-dialog tc-modal modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-4">
           <div class="modal-header">
             <h5 class="modal-title fw-bold" id="termsModalLabel">
@@ -458,6 +461,7 @@
       const otpInput = document.getElementById("otp-hidden-input");
       const otpBoxes = document.querySelectorAll("#otp-display .otp-box");
       const otpDisplay = document.getElementById("otp-display");
+      const verifyOtp = document.getElementById("verify-otp");
 
       otpDisplay.addEventListener("click", () => {
         otpInput.focus();
@@ -486,6 +490,23 @@
         document.getElementById("login-section").style.display = "none";
         document.getElementById("otp-section").style.display = "block";
         otpInput.focus();
+      });
+
+      verifyOtp.addEventListener("click", () => {
+        if (!otpInput.value) {
+          const errorMsg = document.getElementById("error-msg");
+          errorMsg.classList.remove("d-none");
+          errorMsg.classList.add("d-block");
+          errorMsg.innerText = "Please Enter OTP";
+        } else if (otpInput.value !== "000000") {
+          const errorMsg = document.getElementById("error-msg");
+
+          errorMsg.classList.remove("d-none");
+          errorMsg.classList.add("d-block");
+          errorMsg.innerText = "Invalid OTP";
+        } else {
+          window.location.href = "pages/resumes_table.html";
+        }
       });
     </script>
 
