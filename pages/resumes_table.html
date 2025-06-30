@@ -29,7 +29,7 @@
     <header class="top-0 left-0 w-100 bg-white">
       <nav class="navbar bg-transparent">
         <div class="container">
-          <a class="navbar-brand col-4 col-md-4 col-lg-2" href="#">
+          <a class="navbar-brand col-4 col-md-4 col-lg-2" href="../index.html">
             <img
               class="img-fluid d-block"
               src="../assets/images/Logo.png"
@@ -46,14 +46,6 @@
         <div class="filter-section custom-shadow bg-white p-3 mb-4 rounded">
           <div class="row g-3">
             <div class="col-md-2">
-              <label class="form-label">Gender</label>
-              <select id="filterGender" class="form-select">
-                <option value="">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-            <div class="col-md-3">
               <label class="form-label">Candidate Type</label>
               <select id="filterType" class="form-select">
                 <option value="">All</option>
@@ -65,7 +57,15 @@
 
           <!-- Fresher Filters -->
           <div id="fresherFilters" class="row g-3 mt-3 d-none">
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <label class="form-label">Gender</label>
+              <select id="filterGender" class="form-select">
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="col-md-2">
               <label class="form-label">Internship Done?</label>
               <select id="filterInternship" class="form-select">
                 <option value="">All</option>
@@ -73,7 +73,7 @@
                 <option value="No">No</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <label class="form-label">Preferred Department</label>
               <select id="filterFresherDept" class="form-select">
                 <option value="">All</option>
@@ -82,7 +82,7 @@
                 <option value="R&D">R&D</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <label class="form-label">Willing to Relocate?</label>
               <select id="filterRelocateFresher" class="form-select">
                 <option value="">All</option>
@@ -94,7 +94,15 @@
 
           <!-- Experienced Filters -->
           <div id="experiencedFilters" class="row g-3 mt-3 d-none">
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <label class="form-label">Gender</label>
+              <select id="filterGender" class="form-select">
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="col-md-2">
               <label class="form-label">Current Department</label>
               <select id="filterExpDept" class="form-select">
                 <option value="">All</option>
@@ -103,7 +111,7 @@
                 <option value="R&D">R&D</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <label class="form-label">Years of Experience</label>
               <select id="filterExp" class="form-select">
                 <option value="">All</option>
@@ -112,7 +120,7 @@
                 <option value="5+">5+ years</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <label class="form-label">Notice Period</label>
               <select id="filterNotice" class="form-select">
                 <option value="">All</option>
@@ -122,7 +130,7 @@
                 <option value="90 days">90 days</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <label class="form-label">Willing to Relocate?</label>
               <select id="filterRelocateExp" class="form-select">
                 <option value="">All</option>
@@ -167,8 +175,6 @@
       AOS.init();
     </script>
 
-    <script type="module" src="../assets/script.js">
-      // initial
-    </script>
+    <script type="module" src="../assets/script.js"></script>
   </body>
 </html>

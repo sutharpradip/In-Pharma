@@ -81,9 +81,9 @@ body {
     2px 4px 6px 0px rgba(0, 0, 0, 0.05), 5px 10px 16px 0px rgba(0, 0, 0, 0.06);
 }
 
-.social-link-icon:hover > svg path {
+.social-link-icon:hover > i {
   transition: all 0.3s;
-  fill: #2dcaa0 !important;
+  color: #2dcaa0 !important;
 }
 
 .footer-link:hover {
@@ -140,23 +140,6 @@ table.table .table-download-btn {
   background-color: #007456;
 }
 
-.otp-box {
-  width: 52px;
-  height: 60px;
-  border: 2px solid #ced4da;
-  border-radius: 8px;
-  font-size: 24px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #f8f9fa;
-  transition: border-color 0.3s;
-}
-
-.otp-box.focused {
-  border-color: #008062;
-  box-shadow: 0 0 0 2px rgba(0, 128, 98, 0.2);
-}
-
 .eye-btn {
   top: 50%;
   transform: translateY(-50%);
@@ -171,4 +154,20 @@ table.table .table-download-btn {
 
 .form-modal {
   width: 65% !important;
+}
+
+.skeleton-box {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e6ebfb;
+  }
+  50% {
+    background-color: #d8ddef;
+  }
+  100% {
+    background-color: #e6ebfb;
+  }
 }

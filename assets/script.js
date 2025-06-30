@@ -1,8 +1,33 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const eye = document.getElementById("eye");
+  const pass = document.getElementById("login-password");
+
+  if (eye && pass) {
+    eye.addEventListener("click", () => {
+      const type = pass.getAttribute("type");
+      if (type === "password") {
+        pass.setAttribute("type", "text");
+        eye.querySelector("i").classList.remove("fa-eye");
+        eye.querySelector("i").classList.add("fa-eye-slash");
+      } else {
+        pass.setAttribute("type", "password");
+        eye.querySelector("i").classList.remove("fa-eye-slash");
+        eye.querySelector("i").classList.add("fa-eye");
+      }
+    });
+    console.log("click");
+  }
+});
+
 import resumes from "../assets/dummyData.js";
 
-const tbody = document.getElementById("resumeTableBody");
+let loadedCount = 0;
+const batchSize = 8;
+let isLoading = false;
 
 // Toggle filter sections based on candidate type
+const tbody = document.getElementById("resumeTableBody");
+
 document.getElementById("filterType").addEventListener("change", () => {
   const type = document.getElementById("filterType").value;
   document
@@ -43,11 +68,19 @@ function matchExperience(expString, filterExp) {
   return true;
 }
 
+let filteredResumes = [];
+
 function renderTable() {
   const filters = getFilterValues();
-  tbody.innerHTML = "";
+  const skeleton = document.getElementById("skeletonContainer");
 
-  const filtered = resumes.filter((res) => {
+  // Clear old rows, show skeleton
+  tbody.innerHTML = "";
+  skeleton.innerHTML = generateSkeletonRows(5);
+  filteredResumes = [];
+
+  // ✅ Filter and prepare data immediately
+  filteredResumes = resumes.filter((res) => {
     if (filters.gender && res.gender !== filters.gender) return false;
     if (filters.type && res.type !== filters.type) return false;
 
@@ -68,23 +101,75 @@ function renderTable() {
     return true;
   });
 
-  filtered.forEach((res) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-            <td>${res.id}</td>
-            <td>${res.name}</td>
-            <td>${res.title}</td>
-            <td>${res.exp}</td>
-            <td>${res.email}</td>
-            <td>${res.contact}</td>
-            <td><a href="#" class="text-decoration-none table-download-btn">Download</a></td>
-          `;
-    tbody.appendChild(row);
-  });
+  loadedCount = 0;
+
+  // ✅ After 1 second, hide skeleton and show first batch
+  setTimeout(() => {
+    // skeleton.innerHTML = "";
+    loadMoreData(); // Show data immediately after skeleton ends
+  }, 800);
 }
+
+function loadMoreData() {
+  if (isLoading) return;
+  isLoading = true;
+
+  const skeleton = document.getElementById("skeletonContainer");
+  skeleton.innerHTML = generateSkeletonRows(5);
+
+  setTimeout(() => {
+    const nextBatch = filteredResumes.slice(
+      loadedCount,
+      loadedCount + batchSize
+    );
+
+    // Append after delay
+    nextBatch.forEach((res) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${res.id}</td>
+        <td>${res.name}</td>
+        <td>${res.title}</td>
+        <td>${res.exp}</td>
+        <td>${res.email}</td>
+        <td>${res.contact}</td>
+        <td><div class="d-inline-flex  gap-2"><a href="#" class="text-decoration-none table-download-btn"><i class="fa-solid fa-eye"></i></a> <a href="#" class="text-decoration-none table-download-btn"><i class="fa-solid fa-download"></i></a></div></td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    loadedCount += batchSize;
+    isLoading = false;
+    skeleton.innerHTML = "";
+  }, 800);
+}
+
+document.querySelector(".table-area").addEventListener("scroll", function () {
+  const container = this;
+  if (
+    container.scrollTop + container.clientHeight >=
+    container.scrollHeight - 10
+  ) {
+    if (loadedCount < filteredResumes.length) {
+      loadMoreData();
+    }
+  }
+});
 
 document
   .querySelectorAll(".form-select")
   .forEach((el) => el.addEventListener("change", renderTable));
 
 renderTable();
+
+function generateSkeletonRows(count) {
+  let skeletonHTML = "";
+  for (let i = 0; i < count; i++) {
+    skeletonHTML += `
+      <div class="skeleton-row d-flex gap-3 align-items-center px-3 py-2">
+        <div class="skeleton-box flex-grow-1" style="height: 50px; background: #E6EBFB; border-radius: 4px;"></div>
+      </div>
+    `;
+  }
+  return skeletonHTML;
+}
