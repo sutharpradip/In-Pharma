@@ -42,10 +42,17 @@ body {
 
 .hero-sec h1 {
   color: #1aaa84 !important;
-  font-size: 4.5rem;
-  width: 80%;
+  font-size: 2rem;
   margin: 0 auto;
 }
+
+@media (min-width: 768px) {
+  .hero-sec h1 {
+  color: #1aaa84 !important;
+  font-size: 4.5rem;
+  width: 80%;
+  
+ }
 
 .hero-sec h2 {
   font-size: 4rem;
